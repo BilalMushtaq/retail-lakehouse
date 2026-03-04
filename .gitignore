@@ -1,19 +1,31 @@
 # Python
 __pycache__/
 *.pyc
-
-# Virtual environment
+*.pyo
+*.pyd
+.venv/
 venv/
-
-# Environment variables
 .env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (generated)
+*.csv
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Jupyter
-.ipynb_checkpoints/
+# IDE
+.vscode/
+.idea/
 
-# Logs
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# Docker
 *.log
