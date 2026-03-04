@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: rl_postgres
+    environment:
+      POSTGRES_USER: rl_user
+      POSTGRES_PASSWORD: rl_pass
+      POSTGRES_DB: retail
+    ports:
+      - "5432:5432"
+    volumes:
+      - rl_pgdata:/var/lib/postgresql/data
+      - ../sql/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rl_user -d retail"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: rl_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.dev
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - rl_pgadmin:/var/lib/pgadmin
+
+volumes:
+  rl_pgdata:
+  rl_pgadmin:
