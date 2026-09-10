@@ -306,13 +306,11 @@ sql/gold
 
 ---
 
-## 🔮 Future Improvements
-
-- Add **Apache Airflow orchestration**
-- Implement **dbt transformation layer**
-- Add **data quality automation**
-- Deploy to **AWS / Snowflake**
-- Build **BI dashboards (Power BI / Superset)**
+## 🔨 In Progress
+- Adding Apache Airflow orchestration for pipeline scheduling
+- Implementing dbt transformation layer
+- Deploying to AWS S3 + Redshift
+- Adding data quality automation with Great Expectations
 
 ---
 
